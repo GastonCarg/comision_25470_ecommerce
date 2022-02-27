@@ -1,0 +1,42 @@
+$primaryColor: #53b42d;
+$backgroundColor: #f2f2f2;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html , body , #root {
+    height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+
+    h1 {
+        color: $primaryColor;
+    }
+
+    nav {
+        a {
+            color: $primaryColor;
+            text-decoration: none;
+            margin: 1rem;
+        }
+    }
+}
+
+main {
+    flex-grow: 1;
+    background-color: $backgroundColor;
+}
