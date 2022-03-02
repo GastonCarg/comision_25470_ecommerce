@@ -1,3 +1,4 @@
+import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -5,7 +6,7 @@ const App = () => {
         <>
             <NavBar />
             <main id="main-body">
-
+                <ItemListContainer greeting='Bienvenido a la tienda de deportes!' />
             </main>
         </>
     )

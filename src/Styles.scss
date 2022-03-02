@@ -1,4 +1,5 @@
-$primaryColor: #53b42d;
+$primaryColor: #659c4b;
+$secondaryColor: #1b1b1b;
 $backgroundColor: #f2f2f2;
 
 * {
@@ -21,13 +22,17 @@ html , body , #root {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1rem;
 
     h1 {
         color: $primaryColor;
     }
 
     nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         a {
             color: $primaryColor;
             text-decoration: none;
@@ -39,4 +44,19 @@ html , body , #root {
 main {
     flex-grow: 1;
     background-color: $backgroundColor;
+}
+
+.shopCart {
+    color: $primaryColor;
+}
+
+.greeting-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.greeting-text {
+    color: $secondaryColor;
 }
