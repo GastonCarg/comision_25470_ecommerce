@@ -6,7 +6,7 @@ const App = () => {
         <>
             <NavBar />
             <main id="main-body">
-                <ItemListContainer greeting='Bienvenido a la tienda de deportes!' />
+                <ItemListContainer />
             </main>
         </>
     )

@@ -17,6 +17,8 @@ html , body , #root {
   flex-direction: column;
 }
 
+
+// Header: START
 #main-header {
     background-color: white;
     display: flex;
@@ -40,16 +42,20 @@ html , body , #root {
         }
     }
 }
+// Header: END
 
 main {
     flex-grow: 1;
     background-color: $backgroundColor;
 }
 
+// Shopping cart: START
 .shopCart {
     color: $primaryColor;
 }
+// Shopping cart: END
 
+// Greeting: START
 .greeting-container {
     display: flex;
     align-items: center;
@@ -60,3 +66,43 @@ main {
 .greeting-text {
     color: $secondaryColor;
 }
+// Greeting: END
+
+// Counter: START
+.counter-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: 15vw;
+}
+
+.counter-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0em 1em 0em;
+
+}
+
+.item-counter-text {
+    text-align: center;
+}
+
+.add-product-button {
+    display: flex;
+}
+
+.color-button {
+    color: $primaryColor
+}
+// Counter: END
+
+// Item list container: START
+.item-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+// Item list container: END
