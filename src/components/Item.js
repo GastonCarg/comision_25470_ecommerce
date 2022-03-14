@@ -1,10 +1,10 @@
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 const Item = ({ title, price, description, image }) => {
     return (
-        <a className="item-container" onClick={() => console.log(title)}>
+        <a className="item-container">
             <Box className="item-content">
-                <h2 className="item-title">{title}</h2>
+                <Typography variant="h6" className="item-title">{title}</Typography>
                 <Box
                     component="img"
                     sx={{
@@ -13,8 +13,8 @@ const Item = ({ title, price, description, image }) => {
                     }}
                     src={image}
                 />
-                <h3 className="item-price">$ {price}</h3>
-                <p className="item-description">{description}</p>
+                <Typography variant="h6" className="item-price">$ {price}</Typography>
+                <Typography className="item-description">{description}</Typography>
             </Box>
         </a>
     )

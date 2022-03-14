@@ -1,10 +1,10 @@
 import { Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-    // const onAdd = (counter) => {console.log('Add products ' + counter)}
     const [products, setProducts] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -32,8 +32,16 @@ const ItemListContainer = () => {
             price: 6500,
             description: "Camiseta deportiva marca Nike",
             pictureURL: "https://www.thefutbolstore.com.ar/uploads/v2/product/thumb/725891_657_A.jpg"
+        },
+        {
+            id: 4,
+            title: "Zapatillas Hombre Urbana Deportiva",
+            stock: 4,
+            price: 3690,
+            description: "Zapatilla deportiva de hombre art 18: De deporte, informales con un estilo urbano especial para estar vestido a la moda, muy cómodas, antideslizantes y livianas",
+            pictureURL: "https://http2.mlstatic.com/D_NQ_NP_914528-MLA49083858774_022022-O.webp"
         }
-    ]
+    ];
 
     useEffect(() => {
         const mockRequest = new Promise((res, rej) => {
@@ -44,15 +52,15 @@ const ItemListContainer = () => {
 
         mockRequest
             .then((res) => {
-                setProducts(items);
+                setProducts(res);
             })
             .catch((err) => {
-                console.log(err);
+                toast.error('No se han podido cargar los productos');
             })
             .finally(() => {
                 setLoading(false);
             })
-    })
+    }, [])
 
     return (
         <Box className="item-list-container">
