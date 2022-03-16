@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material"
+import { Link } from "react-router-dom"
 
-const Item = ({ title, price, description, image }) => {
+const Item = ({ title, price, description, image, id }) => {
     return (
-        <a className="item-container">
+        <Link to={`/item/${id}`} className="item-container">
             <Box className="item-content">
                 <Typography variant="h6" className="item-title">{title}</Typography>
                 <Box
@@ -16,7 +17,7 @@ const Item = ({ title, price, description, image }) => {
                 <Typography variant="h6" className="item-price">$ {price}</Typography>
                 <Typography className="item-description">{description}</Typography>
             </Box>
-        </a>
+        </Link>
     )
 }
 

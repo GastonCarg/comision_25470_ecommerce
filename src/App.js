@@ -1,21 +1,17 @@
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { Box } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 
-import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import Main from "./components/Main";
 
 const App = () => {
     return (
-        <>
+        <BrowserRouter>
             <NavBar />
-            <Box component="main">
-                <ItemListContainer />
-                <ItemDetailContainer />
-                <ToastContainer />
-            </Box>
-        </>
+            <Main />
+            <ToastContainer />
+        </BrowserRouter>
     )
 }
 
