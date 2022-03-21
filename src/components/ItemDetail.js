@@ -1,7 +1,16 @@
-import { Box } from "@mui/material"
-import { Typography } from '@mui/material';
+import { useState } from "react";
+import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
 
-const ItemDetail = ({ title, description, image, price }) => {
+import ItemCount from "./ItemCount";
+
+const ItemDetail = ({ title, description, image, price, stock }) => {
+    const [quantity, setQuantity] = useState(0);
+
+    const onAdd = (quantityToAdd) =>{
+        setQuantity(quantityToAdd);
+    }
+
     return (
         <Box className="item-detail-container">
             <Box className="item-detail-image-container">
@@ -25,6 +34,7 @@ const ItemDetail = ({ title, description, image, price }) => {
                 <Typography variant="subtitle1" className="item-detail-description">
                     {description}
                 </Typography>
+                <ItemCount stock={stock} initial={stock > 0 ? 1 : 0} onAdd={onAdd} />
             </Box>
         </Box>
     )

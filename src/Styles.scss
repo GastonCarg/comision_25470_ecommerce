@@ -70,11 +70,15 @@ main {
 
 // Counter: START
 .counter-container {
+    padding: 1em;
+}
+
+.counter-buttons-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1em;
-    width: 15vw;
 }
 
 .counter-buttons {
@@ -82,20 +86,30 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 0em 1em 0em;
-
+    width: 60%;
+    margin: 1em 0em 1em 0em;
 }
 
 .item-counter-text {
     text-align: center;
 }
 
-.add-product-button {
+.submit-buttons {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.color-button {
-    color: $primaryColor
+.checkout-purchase {
+    text-decoration: none;
+    color: $primaryColor;
+}
+
+.disable-link {
+    text-decoration: none;
+    pointer-events: none;
+    color: $primaryColor;
 }
 // Counter: END
 
@@ -205,15 +219,18 @@ main {
     // font-size: 1rem;
     padding: 0 0 2em 0;
     color: $secondaryColor;
+    text-align: center;
 }
 
 .item-detail-price {
     font-size: 2rem;
     padding: 0 0 2em 0;
     color: $secondaryColor;
+    text-align: center;
 }
 
 .item-detail-description {
     color: rgba(0, 0, 0, 0.6);
+    text-align: center;
 }
 //Item Detail: END

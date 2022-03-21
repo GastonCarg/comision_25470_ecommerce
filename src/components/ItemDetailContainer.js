@@ -78,7 +78,7 @@ const ItemDetailContainer = () => {
                     <CircularProgress />
                 </Box>
                 :
-                <ItemDetail title={detail.title} description={detail.description} image={detail.pictureURL} price={detail.price} />
+                <ItemDetail title={detail.title} description={detail.description} image={detail.pictureURL} price={detail.price} stock={detail.stock} />
             }
         </>
     )
