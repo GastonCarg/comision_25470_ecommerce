@@ -4,14 +4,17 @@ import { BrowserRouter } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
+import CartContext from "./components/CartContext";
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <NavBar />
-            <Main />
-            <ToastContainer />
-        </BrowserRouter>
+        <CartContext>
+            <BrowserRouter>
+                <NavBar />
+                <Main />
+                <ToastContainer />
+            </BrowserRouter>
+        </CartContext>
     )
 }
 

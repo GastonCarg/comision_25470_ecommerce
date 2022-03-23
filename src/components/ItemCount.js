@@ -23,7 +23,7 @@ const CounterButton = styled(Button)({
     },
 });
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, addItemToCart }) => {
     const [quantity, setCounter] = useState(initial);
     const [itShows, setItShows] = useState("");
 
@@ -51,7 +51,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 <SubmitButton variant="outlined" onClick={() => addProducts(quantity)} disabled={(stock === 0 || quantity === 0) ? true : false}>Confirmar</SubmitButton>
             </Box>
             <Box className="submit-buttons">
-                <Link className={itShows === "none" ? "checkout-purchase" : "disable-link"} to="/cart">Terminar la compra</Link>
+                <Link className={itShows === "none" ? "checkout-purchase" : "disable-link"} to="/cart" onClick={addItemToCart}>Terminar la compra</Link>
             </Box>
         </Box>
     )

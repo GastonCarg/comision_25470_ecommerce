@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 
 import ItemCount from "./ItemCount";
+import { cartContext } from "./CartContext";
 
-const ItemDetail = ({ title, description, image, price, stock }) => {
+const ItemDetail = ({ id, title, description, image, price, stock }) => {
     const [quantity, setQuantity] = useState(0);
 
-    const onAdd = (quantityToAdd) =>{
+    const { addItem } = useContext(cartContext);
+
+    const onAdd = (quantityToAdd) => {
         setQuantity(quantityToAdd);
+    }
+
+    const addItemToCart = () => {
+
+        const item = {
+            id,
+            title,
+            description,
+            image,
+            price
+        }
+
+        addItem(item, quantity);
+
     }
 
     return (
@@ -34,7 +51,7 @@ const ItemDetail = ({ title, description, image, price, stock }) => {
                 <Typography variant="subtitle1" className="item-detail-description">
                     {description}
                 </Typography>
-                <ItemCount stock={stock} initial={stock > 0 ? 1 : 0} onAdd={onAdd} />
+                <ItemCount stock={stock} initial={stock > 0 ? 1 : 0} onAdd={onAdd} addItemToCart={addItemToCart} />
             </Box>
         </Box>
     )

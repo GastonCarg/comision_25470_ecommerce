@@ -6,8 +6,8 @@ const ItemList = ({ items }) => {
     return (
         <Box className="container-item-list">
             {
-                items.map((item, index) => {
-                    return <Item id={item.id} title={item.title} price={item.price} description={item.description} image={item.pictureURL} category={item.category} />
+                items.map((item) => {
+                    return <Item key={item.id} id={item.id} title={item.title} price={item.price} description={item.description} image={item.pictureURL} category={item.category} />
                 })
             }
         </Box>
