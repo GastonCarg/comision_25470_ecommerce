@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { cartContext } from "./CartContext";
 
-const ShoppingCart = () => {
+const Cart = () => {
 
     const { removeItem, cart, quantity, total, clear } = useContext(cartContext);
 
@@ -22,7 +22,7 @@ const ShoppingCart = () => {
                             <Box
                                 component="img"
                                 sx={{
-                                    height: 200,
+                                    height: 250,
                                     width: 200
                                 }}
                                 src={item.image}
@@ -30,7 +30,9 @@ const ShoppingCart = () => {
                             />
                             <Box className="info-cart-container">
                                 <Box className="product-info-container">
-                                    <Typography variant="h5" className="item-title-info">{item.title}</Typography>
+                                    <Link to={`/item/${item.id}`} className="link-to-product">
+                                        <Typography variant="h5" className="item-title-info">{item.title}</Typography>
+                                    </Link>
                                     <Typography variant="subtitle1">Precio unitario: $ {item.price}</Typography>
                                     <Typography variant="subtitle2">Cantidad: {item.quantity}</Typography>
                                 </Box>
@@ -63,4 +65,4 @@ const ShoppingCart = () => {
     )
 }
 
-export default ShoppingCart;
+export default Cart;

@@ -127,6 +127,11 @@ main {
     justify-content: center;
     height: 90vh;
 }
+
+.link-to-product {
+    text-decoration: none;
+    color: $primaryColor;
+}
 // Shopping cart: END
 
 // Counter: START
@@ -167,10 +172,18 @@ main {
     color: $primaryColor;
 }
 
-.disable-link {
+.cart-widget-quantity {
+    position: relative;
+    text-shadow: 0 0 black;
+}
+
+.cart-widget-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #659c4b;
     text-decoration: none;
-    pointer-events: none;
-    color: $primaryColor;
+    margin: 0.5em;
 }
 // Counter: END
 

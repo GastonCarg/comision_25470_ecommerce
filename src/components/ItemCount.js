@@ -3,36 +3,39 @@ import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
+const primaryColor = "#659c4b";
+const secondaryColor = "#1b1b1b";
+
 const SubmitButton = styled(Button)({
-    color: "#659c4b",
+    color: primaryColor,
     margin: "0.5em",
-    borderColor: "#659c4b",
+    borderColor: primaryColor,
     '&:hover': {
-        borderColor: "#1b1b1b",
-        color: "#1b1b1b"
+        borderColor: secondaryColor,
+        color: secondaryColor
     },
     width: "60%"
 });
 
 const CounterButton = styled(Button)({
-    color: "#659c4b",
-    borderColor: "#659c4b",
+    color: primaryColor,
+    borderColor: primaryColor,
     '&:hover': {
-        borderColor: "#1b1b1b",
-        color: "#1b1b1b"
+        borderColor: secondaryColor,
+        color: secondaryColor
     },
 });
 
 const ItemCount = ({ stock, initial, onAdd, addItemToCart }) => {
-    const [quantity, setCounter] = useState(initial);
+    const [quantity, setQuantity] = useState(initial);
     const [itShows, setItShows] = useState("");
 
     const addCounter = () => {
-        if (quantity < stock) setCounter(quantity + 1);
+        if (quantity < stock) setQuantity(quantity + 1);
     }
 
     const subtractCounter = () => {
-        if (quantity > 0) setCounter(quantity - 1);
+        if (quantity > 0) setQuantity(quantity - 1);
     }
 
     const addProducts = (quantity) => {
@@ -50,9 +53,11 @@ const ItemCount = ({ stock, initial, onAdd, addItemToCart }) => {
                 </Box>
                 <SubmitButton variant="outlined" onClick={() => addProducts(quantity)} disabled={(stock === 0 || quantity === 0) ? true : false}>Confirmar</SubmitButton>
             </Box>
-            <Box className="submit-buttons">
-                <Link className={itShows === "none" ? "checkout-purchase" : "disable-link"} to="/cart" onClick={addItemToCart}>Terminar la compra</Link>
-            </Box>
+            { itShows === "none" &&
+                <Box className="submit-buttons">
+                    <Link className="checkout-purchase" to="/cart" onClick={addItemToCart}>Terminar la compra</Link>
+                </Box>
+            }
         </Box>
     )
 }

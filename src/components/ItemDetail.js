@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
+import { toast } from "react-toastify";
 
 import ItemCount from "./ItemCount";
 import { cartContext } from "./CartContext";
@@ -25,7 +26,7 @@ const ItemDetail = ({ id, title, description, image, price, stock }) => {
         }
 
         addItem(item, quantity);
-
+        toast.success("Producto agregado al carrito de compras", { autoClose: 2000 });
     }
 
     return (

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const cartContext = createContext();
 const { Provider } = cartContext;
@@ -40,12 +41,14 @@ const CartContext = ({ children }) => {
         calculateQuantity(itemsOnCart);
         calculateTotal(itemsOnCart);
         setCart(itemsOnCart);
+        toast.success("Producto eliminado del carrito de compras", {autoClose: 2000});
     }
 
     const clear = () => {
         setCart([]);
         setTotal(0);
         setQuantity(0);
+        toast.success("Carrito de compras vaciado", {autoClose: 2000});
     }
 
     const isInCart = (id) => {
