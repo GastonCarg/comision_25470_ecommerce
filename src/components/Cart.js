@@ -1,16 +1,64 @@
 import { Box, IconButton, Typography, Button } from "@mui/material";
-import { useContext } from "react";
+import { LoadingButton } from "@mui/lab"
+import { useContext, useState } from "react";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "./Firebase";
+import { toast } from "react-toastify";
+import { styled } from "@mui/material/styles";
 
 import { cartContext } from "./CartContext";
 
-const Cart = () => {
+const primaryColor = "#659c4b";
+const secondaryColor = "#1b1b1b";
+const SubmitButton = styled(LoadingButton)({
+    color: primaryColor,
+    borderColor: primaryColor,
+    '&:hover': {
+        borderColor: secondaryColor,
+        color: secondaryColor
+    }
+});
 
+const Cart = () => {
+    const [buttonLoading, setButtonLoading ] = useState(false);
     const { removeItem, cart, quantity, total, clear } = useContext(cartContext);
+    const navigate = useNavigate();
 
     const deleteItem = (id) => {
         removeItem(id);
+    }
+
+    const checkout = () => {
+        setButtonLoading(true);
+
+        const data = {
+            buyer: {
+                name: "Gaston Cargnelutti",
+                phone: "3515123158",
+                email: "gaston@example.com"
+            },
+            items: cart,
+            date: serverTimestamp(),
+            total: total
+        }
+
+        const salesCollection = collection(db, "sales");
+        const salesRequest = addDoc(salesCollection, data);
+
+        salesRequest
+            .then((resp) => {
+                clear(true);
+                navigate("/");
+                toast.success("La compra fue realizada correctamente! El ID de la compra es: " + resp.id);
+            })
+            .catch((err) => {
+                toast.error("Oops! Ha ocurrido un error");
+            })
+            .finally(()=>{
+                setButtonLoading(false);
+            })
     }
 
     return (
@@ -49,11 +97,14 @@ const Cart = () => {
             {
                 cart.length > 0 ?
                     <Box className={cart.length > 0 ? "total-info" : "total-info-no-display"}>
-                        <Typography variant="h6" className="">Total: $ {total}</Typography>
-                        <Typography variant="h6">Cantidad de productos: {quantity}</Typography>
                         <Button onClick={clear} startIcon={<DeleteOutlinedIcon style={{ color: "#659c4b" }} />}>
                             <Typography className="delete-all">Eliminar todos</Typography>
                         </Button>
+                        <Typography variant="h6" className="total-quantity-text">Total: $ {total}</Typography>
+                        <Typography variant="h6" className="total-quantity-text">Cantidad de productos: {quantity}</Typography>
+                        <SubmitButton onClick={checkout} loading={buttonLoading} variant="outlined">
+                            <Typography>Confirmar compra</Typography>
+                        </SubmitButton>
                     </Box>
                     :
                     <Box className="no-products-in-cart">

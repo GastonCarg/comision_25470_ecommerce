@@ -44,11 +44,11 @@ const CartContext = ({ children }) => {
         toast.success("Producto eliminado del carrito de compras", {autoClose: 2000});
     }
 
-    const clear = () => {
+    const clear = (checkout) => {
         setCart([]);
         setTotal(0);
         setQuantity(0);
-        toast.success("Carrito de compras vaciado", {autoClose: 2000});
+        if (checkout !== true) toast.success("Carrito de compras vaciado", {autoClose: 2000});
     }
 
     const isInCart = (id) => {
