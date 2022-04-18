@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Tienda de deportes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto representa un e-commerce de una tienda deportiva genérica en el cual se podrá visualizar todos los productos a la venta, pudiendo así también, filtrar por distintas categorías. Cuenta con la posibilidad de realizar la compra de uno o más productos seleccionados, siendo obligatorio cargar los datos del usuario que va a realizar la compra.
 
-## Available Scripts
+La finalidad de este proyecto es la de poner en práctica los conocimientos adquiridos a lo largo del curso de React.js de Coderhouse
 
-In the project directory, you can run:
 
-### `npm start`
+### Herramientas utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* mui/icons-material (v5.4.4 +)
+* mui/material (v5.4.4)
+* firebase (v9.6.9 +)
+* react-router-dom (v6.2.2 +)
+* react-toastify (v8.2.0 +)
+* validator (v13.7.0 +)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Deploy
 
-### `npm test`
+El proyecto se encuentra funcionando en la siguiente URL
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Link del deploy](https://625debe2e4087900a39af56b--superlative-truffle-86e45d.netlify.app/)
 
-### `npm run build`
+[![Netlify Status](https://api.netlify.com/api/v1/badges/233b4f62-f095-460f-a494-2075b01959d0/deploy-status)](https://app.netlify.com/sites/superlative-truffle-86e45d/deploys)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Proceso de instalación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clonamos el repositorio
+```
+    git clone https://github.com/GastonCarg/ecommerce-cargnelutti.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nos movemos dentro de la carpeta ecommerce-cargnelutti
+```
+    cd ecommerce-cargnelutti
+```
 
-### `npm run eject`
+Instalamos librerías que va a utilizar la aplicación
+```
+    npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*Nota: Validamos que se encuentre dentro del proyecto la carpeta node-modules*
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Iniciamos el proyecto
+```
+    npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Si queremos deployar el proyecto en algún servidor
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+    npm run build
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se va a generar una carpeta dentro de la carpeta del proyecto llamada "build", que deberá ser subida al servidor correspondiente.
